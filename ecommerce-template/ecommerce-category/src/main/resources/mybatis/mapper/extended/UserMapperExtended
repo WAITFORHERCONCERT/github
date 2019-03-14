@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sdata.ecommerce.mapper.UserMapper">
+    <resultMap id="UserMapWithPermission" type="com.sdata.ecommerce.domain.User" extends="BaseResultMap">
+        <collection property="permissions" javaType="java.util.List" ofType="com.sdata.ecommerce.domain.Permission">
+            <id column="pid" jdbcType="VARCHAR" property="id"/>
+            <result column="pname" jdbcType="VARCHAR" property="name"/>
+            <result column="pcat" jdbcType="VARCHAR" property="category"/>
+            <result column="pdate" jdbcType="VARCHAR" property="createdDate"/>
+            <result column="pdesc" jdbcType="VARCHAR" property="description"/>
+            <result column="purl" jdbcType="TIMESTAMP" property="url"/>
+        </collection>
+    </resultMap>
+    <select id="getUserWithPermissionsByName" parameterType="java.lang.String" resultMap="UserMapWithPermission">
+        SELECT
+          su.*,
+          p.id           AS pid,
+          p.name         AS pname,
+          p.category     as pcat,
+          p.created_date as pdate,
+          p.description  as pdesc,
+          p.url          as purl
+        FROM sys_user su
+          LEFT JOIN sys_user_role ur on su.id = ur.user_id
+          LEFT JOIN sys_role_permission rp ON ur.role_id = rp.role_id
+          LEFT JOIN sys_permission p on rp.permission_id = p.id
+        WHERE su.name = #{name}
+    </select>
+</mapper>

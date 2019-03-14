@@ -1,0 +1,94 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{/layout}">
+<head>
+    <title>首页</title>
+    <!--<script src="content-script.js"></script>--> <!--Add your page custom script/css here-->
+</head>
+<body>
+<div class="wrapper" layout:fragment="content">
+    <section class="shopping-cart">
+        <!-- .shopping-cart -->
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item active">Library</li>
+                    </ol>
+                </div>
+                <div class="col-md-6 contact-info">
+                    <div class="contact-form">
+                        <form action="#" method="post" id="commentform" class="comment-form">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="contact-bg">
+                                        <h2>Contact Us</h2>
+                                        <p>Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum.</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="lable">Name <span>*</span></div>
+                                    <p class="comment-form-author"><input id="author" name="author" value="" size="30" type="text"></p>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="lable">Email <span>*</span></div>
+                                    <p class="comment-form-email"><input id="email" name="email" value="" size="30" type="text"></p>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="lable">Comments <span>*</span></div>
+                                    <p class="comment-form-comment"><textarea id="comment" name="comment" cols="45" rows="8" placeholder="Comment" aria-required="true"></textarea></p>
+                                </div>
+                                <div class="col-md-12">
+                                    <p class="form-submit"><input name="submit" id="submit" class="btn btn-secondary" value="send messages" type="submit">  </p>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-md-6 contact-info">
+                    <div class="map">
+                        <!--  map  -->
+                        <!-- The element that will contain our Google Map. This is used in both the Javascript and CSS above. -->
+                        <div id="map"></div>
+                        <!--  m/ap  -->
+                    </div>
+                    <div class="col-md-12">
+                        <div class="contact-bg">
+                            <h2>Contact Us</h2>
+                            <p>Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum.</p>
+                        </div>
+                    </div>
+                    <div class="col-sm-3 col-md-6">
+                        <div class="contact-bg">
+                            <h6>Office Address</h6>Urip Sumoharjo 123 Bukir Pasuruan, INA.
+                        </div>
+                    </div>
+                    <div class="col-sm-3 col-md-6">
+                        <div class="contact-bg">
+                            <h6>Email Address </h6>info@website.com<br>www.website.com
+                        </div>
+                    </div>
+                    <div class="col-sm-3 col-md-6">
+                        <div class="contact-bg">
+                            <h6>Phone Number</h6>1 234 567 890<br>9 876 543 210
+                        </div>
+                    </div>
+                    <div class="col-sm-3 col-md-6">
+                        <div class="contact-bg">
+                            <h6>Time Hourss</h6>
+                            Monday to Friday: 10h:00 Am to 7h:00 Pm<br/>
+                            Saturday: 10h:00 Am to 4h:00 Pm<br/>
+                            Sunday: 12h:00 Am to 4h:00 Pm
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+
+        </div>
+        <!-- /.shopping-cart -->
+    </section>
+</div>
+</body>

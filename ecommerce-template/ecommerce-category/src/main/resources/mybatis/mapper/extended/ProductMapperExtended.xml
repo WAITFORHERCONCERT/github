@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.sdata.ecommerce.mapper.ProductMapper">
+    <select id="queryByLike" parameterType="String" resultType="com.sdata.ecommerce.domain.Product">
+        SELECT sp.*,sc.`name` AS categoryName FROM
+        (SELECT *from sdata_product WHERE id LIKE #{keyword} OR name LIKE #{keyword} OR description LIKE #{keyword} )sp LEFT JOIN sdata_category sc
+         ON sp.category_id=sc.id
+    </select>
+    <select id="queryAll" resultType="com.sdata.ecommerce.domain.Product">
+        SELECT sp.*,sc.`name` AS categoryName FROM
+        sdata_product sp LEFT JOIN sdata_category sc
+         ON sp.category_id=sc.id
+    </select>
+</mapper>

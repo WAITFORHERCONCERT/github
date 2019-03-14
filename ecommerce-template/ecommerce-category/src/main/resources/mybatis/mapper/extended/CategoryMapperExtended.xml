@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sdata.ecommerce.mapper.CategoryMapper">
+    <select id="queryByLike" parameterType="String" resultType="com.sdata.ecommerce.domain.Category">
+    SELECT sc.*,sc1.`name` AS parentCategoryName FROM
+   (SELECT *FROM sdata_category WHERE id LIKE #{keyword} OR name LIKE #{keyword})sc LEFT JOIN sdata_category sc1
+       ON sc.parent_category=sc1.id
+    </select>
+    <select id="queryAll" resultType="com.sdata.ecommerce.domain.Category">
+        SELECT sc.*,sc1.`name` AS parentCategoryName FROM
+        sdata_category sc LEFT JOIN sdata_category sc1
+         ON sc.parent_category=sc1.id
+    </select>
+</mapper>
+
+
+
+
+
+
